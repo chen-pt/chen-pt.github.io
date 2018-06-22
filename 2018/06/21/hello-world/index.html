@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="package com.lyt.base.util; import java.util.regex.Pattern; public class FilterHtmlUtil { public static String Html2Text(String inputString){    String htmlStr = inputString; //含html标签的字符串    String te">
+<meta name="description" content="本篇博文也是一个工具类，所以不做多说，撸上代码就能用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java方式过滤HTML获取纯文本信息">
 <meta property="og:url" content="http://yoursite.com/2018/06/21/hello-world/index.html">
 <meta property="og:site_name" content="eureka">
-<meta property="og:description" content="package com.lyt.base.util; import java.util.regex.Pattern; public class FilterHtmlUtil { public static String Html2Text(String inputString){    String htmlStr = inputString; //含html标签的字符串    String te">
+<meta property="og:description" content="本篇博文也是一个工具类，所以不做多说，撸上代码就能用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T06:38:25.813Z">
+<meta property="og:updated_time" content="2018-06-22T07:44:11.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java方式过滤HTML获取纯文本信息">
-<meta name="twitter:description" content="package com.lyt.base.util; import java.util.regex.Pattern; public class FilterHtmlUtil { public static String Html2Text(String inputString){    String htmlStr = inputString; //含html标签的字符串    String te">
+<meta name="twitter:description" content="本篇博文也是一个工具类，所以不做多说，撸上代码就能用">
 
 
 
@@ -97,7 +97,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -329,12 +329,9 @@
       
 
       
-        <p>package com.lyt.base.util;</p>
-<p>import java.util.regex.Pattern;</p>
-<p>public class FilterHtmlUtil {</p>
-<p>public static String Html2Text(String inputString){<br>    String htmlStr = inputString; //含html标签的字符串<br>    String textStr =””;<br>    java.util.regex.Pattern p_script;<br>    java.util.regex.Matcher m_script;<br>    java.util.regex.Pattern p_style;<br>    java.util.regex.Matcher m_style;<br>    java.util.regex.Pattern p_html;<br>    java.util.regex.Matcher m_html;<br>   try{<br>         String regEx_script = “&lt;[\s]<em>?script[^&gt;]</em>?&gt;[\s\S]<em>?&lt;[\s]</em>?\/[\s]<em>?script[\s]</em>?&gt;”; //定义script的正则表达式{或&lt;script[^&gt;]<em>?&gt;[\s\S]</em>?&lt;\/script&gt; }<br>         String regEx_style = “&lt;[\s]<em>?style[^&gt;]</em>?&gt;[\s\S]<em>?&lt;[\s]</em>?\/[\s]<em>?style[\s]</em>?&gt;”; //定义style的正则表达式{或&lt;style[^&gt;]<em>?&gt;[\s\S]</em>?&lt;\/style&gt; }<br>         String regEx_html = “&lt;[^&gt;]+&gt;”; //定义HTML标签的正则表达式<br>         p_script = Pattern.compile(regEx_script,Pattern.CASE_INSENSITIVE);<br>         m_script = p_script.matcher(htmlStr);<br>         htmlStr = m_script.replaceAll(“”); //过滤script标签<br>         p_style = Pattern.compile(regEx_style,Pattern.CASE_INSENSITIVE);<br>         m_style = p_style.matcher(htmlStr);<br>         htmlStr = m_style.replaceAll(“”); //过滤style标签<br>         p_html = Pattern.compile(regEx_html,Pattern.CASE_INSENSITIVE);<br>         m_html = p_html.matcher(htmlStr);<br>         htmlStr = m_html.replaceAll(“”); //过滤html标签<br>         textStr = htmlStr;<br>    }catch(Exception e){<br>    e.printStackTrace();<br>    }<br>    return textStr;//返回文本字符串<br>} </p>
-<p>}</p>
-
+        <p>本篇博文也是一个工具类，所以不做多说，撸上代码就能用</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package com.lyt.base.util;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class FilterHtmlUtil &#123;</span><br><span class="line"></span><br><span class="line">public static String Html2Text(String inputString)&#123;</span><br><span class="line">    String htmlStr = inputString; //含html标签的字符串</span><br><span class="line">    String textStr =&quot;&quot;;</span><br><span class="line">    java.util.regex.Pattern p_script;</span><br><span class="line">    java.util.regex.Matcher m_script;</span><br><span class="line">    java.util.regex.Pattern p_style;</span><br><span class="line">    java.util.regex.Matcher m_style;</span><br><span class="line">    java.util.regex.Pattern p_html;</span><br><span class="line">    java.util.regex.Matcher m_html;</span><br><span class="line">   try&#123;</span><br><span class="line">         String regEx_script = &quot;&lt;[\\s]*?script[^&gt;]*?&gt;[\\s\\S]*?&lt;[\\s]*?\\/[\\s]*?script[\\s]*?&gt;&quot;; //定义script的正则表达式&#123;或&lt;script[^&gt;]*?&gt;[\\s\\S]*?&lt;\\/script&gt; &#125;</span><br><span class="line">         String regEx_style = &quot;&lt;[\\s]*?style[^&gt;]*?&gt;[\\s\\S]*?&lt;[\\s]*?\\/[\\s]*?style[\\s]*?&gt;&quot;; //定义style的正则表达式&#123;或&lt;style[^&gt;]*?&gt;[\\s\\S]*?&lt;\\/style&gt; &#125;</span><br><span class="line">         String regEx_html = &quot;&lt;[^&gt;]+&gt;&quot;; //定义HTML标签的正则表达式</span><br><span class="line">         p_script = Pattern.compile(regEx_script,Pattern.CASE_INSENSITIVE);</span><br><span class="line">         m_script = p_script.matcher(htmlStr);</span><br><span class="line">         htmlStr = m_script.replaceAll(&quot;&quot;); //过滤script标签</span><br><span class="line">         p_style = Pattern.compile(regEx_style,Pattern.CASE_INSENSITIVE);</span><br><span class="line">         m_style = p_style.matcher(htmlStr);</span><br><span class="line">         htmlStr = m_style.replaceAll(&quot;&quot;); //过滤style标签</span><br><span class="line">         p_html = Pattern.compile(regEx_html,Pattern.CASE_INSENSITIVE);</span><br><span class="line">         m_html = p_html.matcher(htmlStr);</span><br><span class="line">         htmlStr = m_html.replaceAll(&quot;&quot;); //过滤html标签</span><br><span class="line">         textStr = htmlStr;</span><br><span class="line">    &#125;catch(Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    return textStr;//返回文本字符串</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -354,6 +351,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/22/JackJson/" rel="prev" title="JackJson工具类的各种转换">
+                JackJson工具类的各种转换 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -422,8 +435,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">博文统计</span>
                 </a>
               </div>
             
@@ -481,7 +494,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -580,6 +593,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
