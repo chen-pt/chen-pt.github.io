@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">个人网站</p>
+        <p class="site-subtitle">沉迷Java 无法自拔</p>
       
   </div>
 
@@ -190,12 +190,42 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -237,7 +267,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr. Chen">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -251,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/21/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/06/21/hello-world/" itemprop="url">Java方式过滤HTML获取纯文本信息</a></h1>
         
 
         <div class="post-meta">
@@ -303,15 +333,11 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>package com.lyt.base.util;</p>
+<p>import java.util.regex.Pattern;</p>
+<p>public class FilterHtmlUtil {</p>
+<p>public static String Html2Text(String inputString){<br>    String htmlStr = inputString; //含html标签的字符串<br>    String textStr =””;<br>    java.util.regex.Pattern p_script;<br>    java.util.regex.Matcher m_script;<br>    java.util.regex.Pattern p_style;<br>    java.util.regex.Matcher m_style;<br>    java.util.regex.Pattern p_html;<br>    java.util.regex.Matcher m_html;<br>   try{<br>         String regEx_script = “&lt;[\s]<em>?script[^&gt;]</em>?&gt;[\s\S]<em>?&lt;[\s]</em>?\/[\s]<em>?script[\s]</em>?&gt;”; //定义script的正则表达式{或&lt;script[^&gt;]<em>?&gt;[\s\S]</em>?&lt;\/script&gt; }<br>         String regEx_style = “&lt;[\s]<em>?style[^&gt;]</em>?&gt;[\s\S]<em>?&lt;[\s]</em>?\/[\s]<em>?style[\s]</em>?&gt;”; //定义style的正则表达式{或&lt;style[^&gt;]<em>?&gt;[\s\S]</em>?&lt;\/style&gt; }<br>         String regEx_html = “&lt;[^&gt;]+&gt;”; //定义HTML标签的正则表达式<br>         p_script = Pattern.compile(regEx_script,Pattern.CASE_INSENSITIVE);<br>         m_script = p_script.matcher(htmlStr);<br>         htmlStr = m_script.replaceAll(“”); //过滤script标签<br>         p_style = Pattern.compile(regEx_style,Pattern.CASE_INSENSITIVE);<br>         m_style = p_style.matcher(htmlStr);<br>         htmlStr = m_style.replaceAll(“”); //过滤style标签<br>         p_html = Pattern.compile(regEx_html,Pattern.CASE_INSENSITIVE);<br>         m_html = p_html.matcher(htmlStr);<br>         htmlStr = m_html.replaceAll(“”); //过滤html标签<br>         textStr = htmlStr;<br>    }catch(Exception e){<br>    e.printStackTrace();<br>    }<br>    return textStr;//返回文本字符串<br>} </p>
+<p>}</p>
 
           
         
@@ -381,6 +407,10 @@
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Mr. Chen" />
             
               <p class="site-author-name" itemprop="name">Mr. Chen</p>
               <p class="site-description motion-element" itemprop="description">学习模板</p>
