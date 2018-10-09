@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="本篇博文也是一个工具类，所以不做多说，撸上代码就能用">
+<meta name="description" content="事务的四大特性： 1、一致性：事务在完成时，必须使所有的数据都保持一致状态，而且在相关数据中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构都应该是正确的。2、原子性：将事务中所做的操作捆绑成一个原子单元，即对于事务所进行的数据修改等操作，要么全部执行，要么全部不执行。3、隔离性：由并发事务所做的修改必须与任何其他事务所做的修改相隔离。事务查看数据时数据所处">
 <meta name="keywords" content="-java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java方式过滤HTML获取纯文本信息">
-<meta property="og:url" content="http://yoursite.com/2018/06/21/hello-world/index.html">
+<meta property="og:title" content="ssm框架事务配置详解">
+<meta property="og:url" content="http://yoursite.com/2018/10/09/ssm-transaction/index.html">
 <meta property="og:site_name" content="Eureka">
-<meta property="og:description" content="本篇博文也是一个工具类，所以不做多说，撸上代码就能用">
+<meta property="og:description" content="事务的四大特性： 1、一致性：事务在完成时，必须使所有的数据都保持一致状态，而且在相关数据中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构都应该是正确的。2、原子性：将事务中所做的操作捆绑成一个原子单元，即对于事务所进行的数据修改等操作，要么全部执行，要么全部不执行。3、隔离性：由并发事务所做的修改必须与任何其他事务所做的修改相隔离。事务查看数据时数据所处">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-25T03:10:01.343Z">
+<meta property="og:updated_time" content="2018-10-09T09:41:14.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java方式过滤HTML获取纯文本信息">
-<meta name="twitter:description" content="本篇博文也是一个工具类，所以不做多说，撸上代码就能用">
+<meta name="twitter:title" content="ssm框架事务配置详解">
+<meta name="twitter:description" content="事务的四大特性： 1、一致性：事务在完成时，必须使所有的数据都保持一致状态，而且在相关数据中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构都应该是正确的。2、原子性：将事务中所做的操作捆绑成一个原子单元，即对于事务所进行的数据修改等操作，要么全部执行，要么全部不执行。3、隔离性：由并发事务所做的修改必须与任何其他事务所做的修改相隔离。事务查看数据时数据所处">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/21/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/09/ssm-transaction/"/>
 
 
 
 
 
-  <title>Java方式过滤HTML获取纯文本信息 | Eureka</title>
+  <title>ssm框架事务配置详解 | Eureka</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/09/ssm-transaction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr. Chen">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java方式过滤HTML获取纯文本信息</h1>
+          <h1 class="post-title" itemprop="name headline">ssm框架事务配置详解</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-21T16:09:52+08:00">
-                2018-06-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T17:38:11+08:00">
+                2018-10-09
               </time>
             
 
@@ -352,9 +352,16 @@
       
 
       
-        <p>本篇博文也是一个工具类，所以不做多说，撸上代码就能用</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package com.lyt.base.util;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public class FilterHtmlUtil &#123;</span><br><span class="line"></span><br><span class="line">public static String Html2Text(String inputString)&#123;</span><br><span class="line">    String htmlStr = inputString; //含html标签的字符串</span><br><span class="line">    String textStr =&quot;&quot;;</span><br><span class="line">    java.util.regex.Pattern p_script;</span><br><span class="line">    java.util.regex.Matcher m_script;</span><br><span class="line">    java.util.regex.Pattern p_style;</span><br><span class="line">    java.util.regex.Matcher m_style;</span><br><span class="line">    java.util.regex.Pattern p_html;</span><br><span class="line">    java.util.regex.Matcher m_html;</span><br><span class="line">   try&#123;</span><br><span class="line">         String regEx_script = &quot;&lt;[\\s]*?script[^&gt;]*?&gt;[\\s\\S]*?&lt;[\\s]*?\\/[\\s]*?script[\\s]*?&gt;&quot;; //定义script的正则表达式&#123;或&lt;script[^&gt;]*?&gt;[\\s\\S]*?&lt;\\/script&gt; &#125;</span><br><span class="line">         String regEx_style = &quot;&lt;[\\s]*?style[^&gt;]*?&gt;[\\s\\S]*?&lt;[\\s]*?\\/[\\s]*?style[\\s]*?&gt;&quot;; //定义style的正则表达式&#123;或&lt;style[^&gt;]*?&gt;[\\s\\S]*?&lt;\\/style&gt; &#125;</span><br><span class="line">         String regEx_html = &quot;&lt;[^&gt;]+&gt;&quot;; //定义HTML标签的正则表达式</span><br><span class="line">         p_script = Pattern.compile(regEx_script,Pattern.CASE_INSENSITIVE);</span><br><span class="line">         m_script = p_script.matcher(htmlStr);</span><br><span class="line">         htmlStr = m_script.replaceAll(&quot;&quot;); //过滤script标签</span><br><span class="line">         p_style = Pattern.compile(regEx_style,Pattern.CASE_INSENSITIVE);</span><br><span class="line">         m_style = p_style.matcher(htmlStr);</span><br><span class="line">         htmlStr = m_style.replaceAll(&quot;&quot;); //过滤style标签</span><br><span class="line">         p_html = Pattern.compile(regEx_html,Pattern.CASE_INSENSITIVE);</span><br><span class="line">         m_html = p_html.matcher(htmlStr);</span><br><span class="line">         htmlStr = m_html.replaceAll(&quot;&quot;); //过滤html标签</span><br><span class="line">         textStr = htmlStr;</span><br><span class="line">    &#125;catch(Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    return textStr;//返回文本字符串</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>事务的四大特性：</p>
+<p>1、一致性：事务在完成时，必须使所有的数据都保持一致状态，而且在相关数据中，所有规则都必须应用于事务的修改，以保持所有数据的完整性。事务结束时，所有的内部数据结构都应该是正确的。<br>2、原子性：将事务中所做的操作捆绑成一个原子单元，即对于事务所进行的数据修改等操作，要么全部执行，要么全部不执行。<br>3、隔离性：由并发事务所做的修改必须与任何其他事务所做的修改相隔离。事务查看数据时数据所处的状态，要么是被另一并发事务修改之前的状态，要么是被另一并发事务修改之后的状态，即事务不会查看由另一个并发事务正在修改的数据。这种隔离方式也叫可串行性。<br>4、持久性：事务完成之后，它对系统的影响是永久的，即使出现系统故障也是如此。        </p>
+<p>一：先配置事物管理器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
+<p>二： 配置事物 （两种方式）</p>
+<ol>
+<li>tx标签声明式事物</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--通过&lt;tx:advice&gt;标签定义事务增强，并制定事务管理器  --&gt;</span><br><span class="line">&lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;txManager&quot;&gt;</span><br><span class="line">	&lt;!--定义属性，声明事务规则 --&gt;</span><br><span class="line">	&lt;tx:attributes&gt;</span><br><span class="line">		&lt;tx:method name=&quot;create*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;insert*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;add*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;upd*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;del*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;execute*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;do*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;set*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;get*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;show*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;list*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;select*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;query*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;has*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;ntx*&quot; propagation=&quot;NOT_SUPPORTED&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;/tx:attributes&gt;</span><br><span class="line">	  &lt;/tx:advice&gt;</span><br><span class="line">	  </span><br><span class="line">	//定义切面</span><br><span class="line">	&lt;aop:config&gt;</span><br><span class="line">		&lt;aop:pointcut id=&quot;serviceMethod&quot; expression=&quot;execution(* com.lyt.soa.service..*.*(..))&quot;/&gt;</span><br><span class="line">		&lt;!-- 将事务增强与切入点组合（织入事务切面） --&gt;</span><br><span class="line">		&lt;aop:advisor pointcut-ref=&quot;serviceMethod&quot; advice-ref=&quot;txAdvice&quot;/&gt;</span><br><span class="line">	&lt;/aop:config&gt;</span><br><span class="line">	/**</span><br><span class="line">	注释：&lt;tx:advice id=&quot;txAdvice&quot;  transaction-manager=&quot;txManger&quot;&gt;这个 transaction-manager必须是事务管理器的名字，下面的是方法的开头 比如说 service层的方法保存是以save什么什么，那配置的时候就save* 就是以save开头的方法获取事务。</span><br><span class="line">	*/</span><br></pre></td></tr></table></figure>
+<p>2.注解式事务配置（这个注解就是 你哪些方法需要事务你就在那个方法上写一个@Transactional 这个标记）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 事务管理器 --&gt;  </span><br><span class="line">&lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;  </span><br><span class="line">     &lt;property name=&quot;dataSource&quot; ref=&quot;mydataSource&quot; /&gt;  </span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;!-- 开启事务注解，标注@Transactional的类和方法将具有事务性 --&gt;</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;txManager&quot; /&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -384,14 +391,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/10/09/spring-config/" rel="next" title="spring-springmvc-mybatis（ssm）maven框架整合教程">
+                <i class="fa fa-chevron-left"></i> spring-springmvc-mybatis（ssm）maven框架整合教程
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/22/JackJson/" rel="prev" title="JackJson工具类的各种转换">
-                JackJson工具类的各种转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/09/ssm-quartz/" rel="prev" title="ssm框架整合quartz实现定时任务">
+                ssm框架整合quartz实现定时任务 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
