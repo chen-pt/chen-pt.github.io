@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="-java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="spring-springmvc-mybatis（ssm）maven框架整合教程">
+<meta name="keywords" content="-java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-springmvc-mybatis（ssm）maven框架整合教程">
+<meta property="og:url" content="http://yoursite.com/2018/10/09/spring-config/index.html">
+<meta property="og:site_name" content="Eureka">
+<meta property="og:description" content="spring-springmvc-mybatis（ssm）maven框架整合教程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20170508163947812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hlbl9wdA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-10-09T09:31:15.828Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-springmvc-mybatis（ssm）maven框架整合教程">
+<meta name="twitter:description" content="spring-springmvc-mybatis（ssm）maven框架整合教程">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170508163947812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hlbl9wdA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/09/spring-config/"/>
+
+
+
+
+
+  <title>spring-springmvc-mybatis（ssm）maven框架整合教程 | Eureka</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eureka</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">沉迷Java 无法自拔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/09/spring-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr. Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eureka">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring-springmvc-mybatis（ssm）maven框架整合教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T17:25:56+08:00">
+                2018-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>spring-springmvc-mybatis（ssm）maven框架整合教程</p>
+<a id="more"></a>
+<p><strong>第一步，新建maven项目</strong><br>下图先看下整体项目结构<br><img src="http://img.blog.csdn.net/20170508163947812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hlbl9wdA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>1.先加入相关jar包依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;groupId&gt;ssm&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;ssm&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;packaging&gt;war&lt;/packaging&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">		&lt;comLog.version&gt;1.1.1&lt;/comLog.version&gt;</span><br><span class="line">		&lt;slf4j.version&gt;1.6.1&lt;/slf4j.version&gt;</span><br><span class="line">		&lt;jackson.version&gt;1.9.13&lt;/jackson.version&gt;</span><br><span class="line">		&lt;mybatis.version&gt;3.2.6&lt;/mybatis.version&gt;</span><br><span class="line">		&lt;spring.version&gt;4.0.2.RELEASE&lt;/spring.version&gt;</span><br><span class="line">   &lt;/properties&gt;</span><br><span class="line">  </span><br><span class="line">   &lt;dependencies&gt;</span><br><span class="line">		  &lt;dependency&gt;  </span><br><span class="line">		      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;  </span><br><span class="line">		      &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;  </span><br><span class="line">		      &lt;version&gt;2.1.0&lt;/version&gt;  </span><br><span class="line">		  &lt;/dependency&gt;  </span><br><span class="line">		  &lt;dependency&gt;  </span><br><span class="line">		      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;  </span><br><span class="line">		      &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;  </span><br><span class="line">		      &lt;version&gt;2.1.0&lt;/version&gt;  </span><br><span class="line">		  &lt;/dependency&gt;  </span><br><span class="line">		  &lt;dependency&gt;  </span><br><span class="line">		      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;  </span><br><span class="line">		      &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;  </span><br><span class="line">		      &lt;version&gt;2.1.0&lt;/version&gt;  </span><br><span class="line">		  &lt;/dependency&gt;</span><br><span class="line">   </span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;net.sf.json-lib&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;json-lib&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.4&lt;/version&gt;</span><br><span class="line">			&lt;classifier&gt;jdk15&lt;/classifier&gt;&lt;!--指定jdk版本 --&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">	 	&lt;dependency&gt;</span><br><span class="line">	 		&lt;groupId&gt;commons-logging&lt;/groupId&gt;</span><br><span class="line">	 		&lt;artifactId&gt;commons-logging&lt;/artifactId&gt;</span><br><span class="line">	 		&lt;version&gt;$&#123;comLog.version&#125;&lt;/version&gt;</span><br><span class="line">	 	&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;slf4j.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;slf4j.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jackson-core-asl&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;jackson.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jackson-core-lgpl&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;jackson.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jackson-jaxrs&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;jackson.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;jackson.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jackson-mapper-lgpl&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;jackson.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jackson-smile&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;jackson.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;jackson-xc&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;jackson.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;		</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-aop&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-beans&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-context&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-expression&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-orm&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-tx&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;5.1.10&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-web&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-webmvc-portlet&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;$&#123;spring.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.mortbay.jetty&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;servlet-api-2.5&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;6.1.14&lt;/version&gt;</span><br><span class="line">			&lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">		    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</span><br><span class="line">		    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;</span><br><span class="line">		    &lt;version&gt;$&#123;mybatis.version&#125;&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.mybatis&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.2.1&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">	    &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;c3p0&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;c3p0&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;0.9.1.2&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.aspectj&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.6.8&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.freemarker&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;freemarker&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.3.16&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;joda-time&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;joda-time&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.7&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;commons-lang&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;commons-lang&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.6&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">	&lt;/dependencies&gt;</span><br><span class="line">  </span><br><span class="line">   &lt;build&gt;</span><br><span class="line">		&lt;plugins&gt;</span><br><span class="line">			&lt;plugin&gt;</span><br><span class="line">				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">				&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">				&lt;version&gt;2.1&lt;/version&gt;</span><br><span class="line">				&lt;configuration&gt;</span><br><span class="line">					&lt;source&gt;1.7&lt;/source&gt;</span><br><span class="line">					&lt;target&gt;1.7&lt;/target&gt;</span><br><span class="line">				&lt;/configuration&gt;</span><br><span class="line">			&lt;/plugin&gt;</span><br><span class="line">		&lt;/plugins&gt;</span><br><span class="line">	&lt;/build&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<p>2.配置spring文件及事务（applicationContext-beans.xml，applicationContext-transaction.xml）</p>
+<p>####applicationContext-beans.xml配置如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans</span><br><span class="line">	xmlns=&quot;http://www.springframework.org/schema/beans&quot; </span><br><span class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </span><br><span class="line">	xmlns:context=&quot;http://www.springframework.org/schema/context&quot; </span><br><span class="line">	xmlns:task=&quot;http://www.springframework.org/schema/task&quot;</span><br><span class="line">	xsi:schemaLocation=&quot;</span><br><span class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd </span><br><span class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd</span><br><span class="line">		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd &quot;</span><br><span class="line">&gt;</span><br><span class="line">	&lt;context:component-scan base-package=&quot;com.cpt&quot;&gt;</span><br><span class="line">		&lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;</span><br><span class="line">	&lt;/context:component-scan&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean id=&quot;properties&quot; class=&quot;org.springframework.beans.factory.config.PropertiesFactoryBean&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;locations&quot;&gt;</span><br><span class="line">			&lt;list&gt;</span><br><span class="line">				&lt;value&gt;classpath:conf/*.properties&lt;/value&gt;</span><br><span class="line">			&lt;/list&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean class=&quot;org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;properties&quot; ref=&quot;properties&quot;/&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;user&quot; value=&quot;$&#123;db.user&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;password&quot; value=&quot;$&#123;db.password&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;driverClass&quot; value=&quot;$&#123;db.driverClass&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;jdbcUrl&quot; value=&quot;$&#123;db.jdbcUrl&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;maxPoolSize&quot; value=&quot;$&#123;c3p0.maxPoolSize&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;minPoolSize&quot; value=&quot;$&#123;c3p0.minPoolSize&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;initialPoolSize&quot; value=&quot;$&#123;c3p0.initialPoolSize&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;maxIdleTime&quot; value=&quot;$&#123;c3p0.maxIdleTime&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;$&#123;c3p0.acquireRetryAttempts&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;idleConnectionTestPeriod&quot; value=&quot;$&#123;c3p0.idleConnectionTestPeriod&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;testConnectionOnCheckin&quot; value=&quot;$&#123;c3p0.testConnectionOnCheckin&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;automaticTestTable&quot; value=&quot;$&#123;c3p0.automaticTestTable&#125;&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;numHelperThreads&quot; value=&quot;$&#123;c3p0.numHelperThreads&#125;&quot;/&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean id=&quot;jsonHttpMessageConverter&quot; class=&quot;org.springframework.http.converter.json.MappingJackson2HttpMessageConverter&quot;/&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean id=&quot;stringHttpMessageConverter&quot; class=&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;/&gt;</span><br><span class="line"></span><br><span class="line">	&lt;import resource=&quot;classpath:spring/applicationContext-transaction.xml&quot;/&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>####applicationContext-transaction.xml 配置如下<br>（采用tx标签声明的事务 如以create，upd·····等开头的方法将被事务控制）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans</span><br><span class="line">	xmlns=&quot;http://www.springframework.org/schema/beans&quot; </span><br><span class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </span><br><span class="line">	xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; </span><br><span class="line">	xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot; </span><br><span class="line">	xsi:schemaLocation=&quot;</span><br><span class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd </span><br><span class="line">		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd </span><br><span class="line">		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd&quot;</span><br><span class="line">&gt;</span><br><span class="line">	&lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;txManager&quot;&gt;</span><br><span class="line">		&lt;tx:attributes&gt;</span><br><span class="line">			&lt;tx:method name=&quot;create*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;insert*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;add*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;upd*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;del*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;execute*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;do*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;set*&quot; propagation=&quot;REQUIRED&quot; isolation=&quot;DEFAULT&quot; rollback-for=&quot;Exception&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;get*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;show*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;list*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;select*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;query*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;has*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;ntx*&quot; propagation=&quot;NOT_SUPPORTED&quot;/&gt;</span><br><span class="line">			&lt;tx:method name=&quot;*&quot; propagation=&quot;SUPPORTS&quot; isolation=&quot;DEFAULT&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;/tx:attributes&gt;</span><br><span class="line">	&lt;/tx:advice&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;aop:config&gt;</span><br><span class="line">		&lt;aop:pointcut id=&quot;serviceMethod&quot; expression=&quot;execution(* com.cpt.service.impl..*.*(..))&quot;/&gt;</span><br><span class="line">		&lt;aop:advisor pointcut-ref=&quot;serviceMethod&quot; advice-ref=&quot;txAdvice&quot;/&gt;</span><br><span class="line">	&lt;/aop:config&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>２.配置springmvc（mySpringMVC-servlet.xml）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans</span><br><span class="line">	xmlns=&quot;http://www.springframework.org/schema/beans&quot; </span><br><span class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </span><br><span class="line">	xmlns:context=&quot;http://www.springframework.org/schema/context&quot; </span><br><span class="line">	xsi:schemaLocation=&quot;</span><br><span class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd </span><br><span class="line">		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;</span><br><span class="line">&gt;</span><br><span class="line">	&lt;context:component-scan base-package=&quot;com.cpt.controller&quot;&gt;</span><br><span class="line">		&lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Service&quot;/&gt;</span><br><span class="line">	&lt;/context:component-scan&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean class=&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping&quot;/&gt;</span><br><span class="line">	&lt;bean class=&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;synchronizeOnSession&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;messageConverters&quot;&gt;</span><br><span class="line">			&lt;list&gt;</span><br><span class="line">				&lt;ref bean=&quot;jsonHttpMessageConverter&quot;/&gt;</span><br><span class="line">			&lt;/list&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;webBindingInitializer&quot;&gt;</span><br><span class="line">			&lt;bean class=&quot;org.springframework.web.bind.support.ConfigurableWebBindingInitializer&quot;&gt;</span><br><span class="line">				&lt;property name=&quot;conversionService&quot;&gt; &lt;!-- @DateTimeFormat 依赖joda-time --&gt;</span><br><span class="line">					&lt;bean class=&quot;org.springframework.format.support.FormattingConversionServiceFactoryBean&quot;/&gt;</span><br><span class="line">				&lt;/property&gt;</span><br><span class="line">			&lt;/bean&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">	&lt;bean id=&quot;freeMarkerResolver&quot; class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;cache&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;suffix&quot; value=&quot;.ftl&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;contentType&quot; value=&quot;text/html;charset=UTF-8&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;requestContextAttribute&quot; value=&quot;rc&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;exposeRequestAttributes&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;exposeSessionAttributes&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;allowSessionOverride&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;exposeSpringMacroHelpers&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerView&quot;/&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean id=&quot;fmXmlEscape&quot; class=&quot;freemarker.template.utility.XmlEscape&quot; /&gt;</span><br><span class="line">	&lt;bean id=&quot;freeMarkerConfigurer&quot; class=&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;templateLoaderPaths&quot;&gt;</span><br><span class="line">			&lt;array&gt;</span><br><span class="line">				&lt;value&gt;/WEB-INF/ftl/&lt;/value&gt;</span><br><span class="line">			&lt;/array&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;freemarkerVariables&quot;&gt;</span><br><span class="line">			&lt;map&gt;</span><br><span class="line">				&lt;entry key=&quot;xml_escape&quot; value-ref=&quot;fmXmlEscape&quot;/&gt;</span><br><span class="line">			&lt;/map&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;freemarkerSettings&quot;&gt;</span><br><span class="line">			&lt;props&gt;</span><br><span class="line">				&lt;prop key=&quot;template_update_delay&quot;&gt;0&lt;/prop&gt;</span><br><span class="line">				&lt;prop key=&quot;default_encoding&quot;&gt;UTF-8&lt;/prop&gt;</span><br><span class="line">				&lt;prop key=&quot;number_format&quot;&gt;0.##########&lt;/prop&gt;</span><br><span class="line">				&lt;prop key=&quot;datetime_format&quot;&gt;yyyy-MM-dd HH:mm:ss&lt;/prop&gt;</span><br><span class="line">				&lt;prop key=&quot;date_format&quot;&gt;yyyy-MM-dd&lt;/prop&gt;</span><br><span class="line">				&lt;prop key=&quot;time_format&quot;&gt;HH:mm:ss&lt;/prop&gt;</span><br><span class="line">				&lt;prop key=&quot;classic_compatible&quot;&gt;true&lt;/prop&gt;</span><br><span class="line">				&lt;prop key=&quot;template_exception_handler&quot;&gt;ignore&lt;/prop&gt;</span><br><span class="line">			&lt;/props&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">	&lt;bean id=&quot;jsonResolver&quot; class=&quot;org.springframework.web.servlet.view.json.MappingJacksonJsonView&quot;/&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p>3.配置mybatis（applicationContext-mybatis.xml, mybatis-config.xml）<br>applicationContext-mybatis.xml配置如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans</span><br><span class="line">	xmlns=&quot;http://www.springframework.org/schema/beans&quot; </span><br><span class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </span><br><span class="line">	xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; </span><br><span class="line">	xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot; </span><br><span class="line">	xsi:schemaLocation=&quot;</span><br><span class="line">		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd </span><br><span class="line">		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd </span><br><span class="line">		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd&quot;</span><br><span class="line">&gt;</span><br><span class="line">	&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot; name=&quot;mainSqlSessionFactory&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis/mybatis-config.xml&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;mapperLocations&quot;&gt;&lt;value&gt;classpath:sqlmaps/**/*.xml&lt;/value&gt;&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line"> </span><br><span class="line">	&lt;bean id=&quot;mapperScannerConfigurer&quot; class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;basePackage&quot; value=&quot;com.cpt.dao&quot;/&gt;</span><br><span class="line">		&lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;mainSqlSessionFactory&quot;/&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>mybatis-config.xml配置如下<br>（开启别名）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE configuration PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;typeAliases&gt;</span><br><span class="line">		&lt;package name=&quot;com.cpt.model&quot;/&gt;</span><br><span class="line">	&lt;/typeAliases&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<p>4.数据库配置文件（c3p0.properties）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">db.user=xxx</span><br><span class="line">db.password=xxx</span><br><span class="line">db.driverClass=com.mysql.jdbc.Driver</span><br><span class="line">db.jdbcUrl=jdbc\:mysql\://x-x-x\:3306/demo?useUnicode=true&amp;amp;characterEncoding=UTF8</span><br><span class="line">c3p0.maxPoolSize=20</span><br><span class="line">c3p0.minPoolSize=5</span><br><span class="line">c3p0.initialPoolSize=3</span><br><span class="line">c3p0.maxIdleTime=60</span><br><span class="line">c3p0.acquireRetryAttempts=5</span><br><span class="line">c3p0.idleConnectionTestPeriod=60</span><br><span class="line">c3p0.testConnectionOnCheckin=true</span><br><span class="line">c3p0.automaticTestTable=c3p0Table</span><br><span class="line">c3p0.numHelperThreads=20</span><br></pre></td></tr></table></figure></p>
+<p>说明：这个项目前端整合的是freemarker格式</p>
+<p><strong>在此奉上项目源码 <a href="https://github.com/chenpt123/ssm.git" target="_blank" rel="noopener">https://github.com/chenpt123/ssm.git</a></strong></p>
+<p>以上就是整个项目配置文件，做好相应的部分就可以放在服务器上跑了试试了。亲测成功！<br>（自己学习笔记，如有错误欢迎留言指正）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># -java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/22/JackJson/" rel="next" title="JackJson工具类的各种转换">
+                <i class="fa fa-chevron-left"></i> JackJson工具类的各种转换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Mr. Chen" />
+            
+              <p class="site-author-name" itemprop="name">Mr. Chen</p>
+              <p class="site-description motion-element" itemprop="description">学习模板</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">博文统计</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr. Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
